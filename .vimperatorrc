@@ -1,0 +1,99 @@
+" vim: set filetype=vim :
+
+"============================
+" General
+"============================
+
+" 入力欄に自動フォーカスしない
+set focuscontent
+" ビジュアルベルを表示しない
+set visualbell
+highlight Bell display:none
+" :oなどでの補完候補をサーチエンジン、履歴に限定
+set complete=sl
+" Hintモードでアルファベット使用
+"set hintchars=ijfnvurhgytbkdmcielsxoe
+"set hintchars=abcd
+set hintchars=fjklasdhguionmerwc
+
+"============================
+" Key mapping
+"============================
+
+"keyが効かなくなったとき操作をvimpeにもどす(もっといい方法ありそう)
+"noremap
+
+" google検索を手早くする
+noremap s :open<Space>google<Space>
+noremap ,s :tabopen<Space>google<Space>
+
+" 移動幅
+"noremap j 5j
+"noremap k 5k
+noremap j <Down>
+noremap k <Up>
+"let g:smooziee_scroll_amount="60000"
+"let g:smooziee_scroll_interval="1"
+
+
+" タブ移動
+nnoremap h <C-p>
+nnoremap l <C-n>
+" タブの位置変更
+map <C-l> :tabmove! +1<CR>
+map <C-h> :tabmove! -1<CR>
+" undo一覧から開く
+nnoremap U :undo<Space>
+let g:hint_tombloo_key = 'r'
+" ブラウザ再起動
+"nnoremap <C-r> :restart<CR>
+" 再読み込み
+nnoremap <C-r> :source .vimperatorrc<CR>
+
+" VisualモードでC-gで選択しているテキストでGoogle検索
+vmap <silent> <C-g> y<Esc><Esc>P
+
+" Ctrl-nで補完を選択
+"cmap <C-n> <Tab>
+"cmap <C-p> <S-Tab>
+
+" bookmarkを表示
+nnoremap <A-b> :open about:mybookmarks<CR>
+nnoremap <A-S-b> :tabopen about:mybookmarks<CR>
+
+inoremap jj <ESC>
+inoremap LL <Right><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
+
+
+"============================
+" colorscheme
+"============================
+" デフォルトのヒント派手すぎ＞＜
+hi Hint font-family: Arial; font-size: 21px; font-weight: bold; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #33cccc;
+hi HintElem color: gray; background-color: #a1e4e6;
+hi HintActive color: black; background-color: #ff8700;
+
+" デフォルトのエラー赤くてこわい＞＜
+hi ErrorMsg color:white; background-color: #ec6aa1;
+
+"============================
+" qmarks
+"============================
+qmark e https://www.evernote.com/Home.action
+qmark g https://scholar.google.co.jp/
+qmark k http://192.168.0.160/scripts/cbag/ag.exe?page=AGIndex
+qmark m https://mail.google.com/
+qmark p https://getpocket.com/a/queue/
+qmark s https://amsl-group.slack.com/messages/general/
+qmark t https://trello.com/
+qmark u https://www.udacity.com/me#!/
+
+"============================
+" plugin
+"============================
+
+" plugin_loader
+let g:plugin_loader_roots = "~\vimperator\vimperator-plugins\ ~/.vimperator/vimperator-plugins/"
+let g:plugin_loader_plugins = "_libly,direct_bookmark,sbmcommentsviewer,caret-hint,appendAnchor,stella,feedSomeKeys_3,commandBookmarklet,copy"
+
+
